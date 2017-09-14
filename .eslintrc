@@ -3,7 +3,8 @@
 	"root": true,
 	"env": {
 		"es6": true,
-		"commonjs": true
+		"commonjs": true,
+		"jest": true
 	},
 	"parser": "babel-eslint",
 	"parserOptions": {
@@ -22,7 +23,8 @@
 		"airbnb-flow"
 	],
 	"globals": {
-		"expect": true
+		"global": true,
+		"self": true
 	},
 	"rules": {
 		"indent": ["error", "tab", {"SwitchCase": 1}],

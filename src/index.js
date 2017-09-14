@@ -1,6 +1,7 @@
 import { parse } from 'flow-parser'
 import doctrine from 'doctrine'
-import { getFiles } from './files'
+import { readFile, getFiles } from './files'
+import { getTypes } from './type'
 
 const tp = `
 /**
@@ -33,6 +34,14 @@ declare type DashboardToolbarPropsType = {
 
 const run = async () => {
 	const files = await getFiles('./flow-typed')
+	files.forEach((filename) => {
+		const data = readFile(filename)
+		const types = getTypes(data)
+
+		types.forEach((type) => {
+			const astDoc = convertToDoc(type)
+		})
+	})
 
 	console.log('<+++++ index.js::37::run +++++++++')
 	console.log(files)
